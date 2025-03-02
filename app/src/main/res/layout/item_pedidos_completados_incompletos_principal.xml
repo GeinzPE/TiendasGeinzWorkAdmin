@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_alignParentRight="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp">
+        <!-- Imagen circular del usuario -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_PerfilUser"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/img_perfil"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp" />
+
+        <!-- Indicador circular debajo de la imagen -->
+        <View
+            android:id="@+id/acvidad"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignEnd="@id/img_PerfilUser"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/circular_background" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Número de pedido -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nº PEDIDO : " />
+            <TextView
+                android:id="@+id/numeroPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <!-- Nombre -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOMBRE : " />
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <!-- Total -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL : " />
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <!-- Cantidad de artículos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANTIDAD DE ARTICULOS : " />
+            <TextView
+                android:id="@+id/cantidadArticulos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <!-- Ubicación -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UBICACION : " />
+            <TextView
+                android:id="@+id/ubicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <!-- Método de pago -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="METODO DE PAGO : " />
+            <TextView
+                android:id="@+id/metodoPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <!-- Estado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ESTADO : " />
+            <TextView
+                android:id="@+id/estado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FECHA DE RESERVA : " />
+            <TextView
+                android:id="@+id/fecha_reservada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FECHA DE ENTREGA : " />
+            <TextView
+                android:id="@+id/fecha_entrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/compras"
+        android:icon="@drawable/compras_vector"
+        android:title="Compras" />
+    <item
+        android:id="@+id/reservas"
+        android:icon="@drawable/calendario_vector"
+        android:title="Reservas" />
+
+    <item
+        android:id="@+id/historial_venta"
+        android:icon="@drawable/reserva_vector"
+
+        android:title="Historial de venta" />
+    <item
+        android:id="@+id/cuenta"
+        android:icon="@drawable/usuarios_vector"
+        android:title="Cuenta" />
+</menu>

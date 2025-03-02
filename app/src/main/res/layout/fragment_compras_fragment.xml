@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tiendasgeinzadmin.Fragmentos.compras_fragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/include_cabeazero"
+                layout="@layout/include_cabezero_iniciofragment" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categroiasFiltrado"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                tools:listitem="@layout/item_filtrado" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reciclePedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_pedidos_completados_incompletos_principal" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

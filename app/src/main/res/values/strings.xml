@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tiendas Geinz Admin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notificacion_chanel_id_defaul">Tiendas</string>
+    <string name="notificacion_chanel_name_defaul">Tiendas</string>
+    <string name="bievenido_a_tiendas_geinz">Bievenido a Tiendas Geinz</string>
+    <string name="Bienvenido_Geinz">Bienvenido a tiendas geinz</string>
+    <string name="Usuario">user</string>
+    <string name="puntos">****</string>
+</resources>

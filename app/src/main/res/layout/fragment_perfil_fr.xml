@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentos.perfil_fr">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/portada"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vaner_pruva"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_PerfilUser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="14dp"
+                android:src="@drawable/img_perfil"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/categoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categoria" />
+
+            <TextView
+                android:id="@+id/seguidores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="seguidores" />
+
+
+            <TextView
+                android:id="@+id/sucategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="subcategoria" />
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nombre" />
+
+            <TextView
+                android:id="@+id/descripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="descripcion" />
+
+            <TextView
+                android:id="@+id/horario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="horario" />
+
+
+            <TextView
+                android:id="@+id/numero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="numero" />
+
+            <TextView
+                android:id="@+id/ubicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ubicacion" />
+
+            <TextView
+                android:id="@+id/estrellas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="estrellas" />
+
+            <TextView
+                android:id="@+id/zona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="zona" />
+
+            <Button
+                android:id="@+id/agreagrQR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="agregar Qr" />
+
+
+            <Button
+                android:id="@+id/enviarnoti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="noti" />
+
+            <Button
+                android:id="@+id/horarios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hroaio" />
+
+            <Button
+                android:id="@+id/editarPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="editar perfil" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

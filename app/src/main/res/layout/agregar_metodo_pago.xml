@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/texto_dialogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escribe un nombre para el método de pago"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/input_nombre_metodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ejemplo: metodo de pago servicios"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:inputType="text"/>
+
+</LinearLayout>

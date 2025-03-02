@@ -1,0 +1,10 @@
+<!-- res/drawable/rounded_dialog_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/white" /> <!-- Color de fondo del diálogo -->
+    <corners android:radius="16dp" /> <!-- Radio de redondeo de los bordes -->
+    <padding
+        android:left="16dp"
+        android:top="16dp"
+        android:right="16dp"
+        android:bottom="16dp" />
+</shape>
