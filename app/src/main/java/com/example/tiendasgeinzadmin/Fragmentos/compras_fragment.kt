@@ -14,14 +14,17 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.tiendasgeinzadmin.DataClass.dataClassArticulosObtenidos
 import com.example.tiendasgeinzadmin.DataClass.dataClassFiltradoCompras
 import com.example.tiendasgeinzadmin.DataClass.dataclasPedidos
 import com.example.tiendasgeinzadmin.DataClass.dataclassProductosCompras
+import com.example.tiendasgeinzadmin.adapter.adapterArticulosCliente
 import com.example.tiendasgeinzadmin.adapter.adapterFiltradoCompras
 import com.example.tiendasgeinzadmin.adapter.adapterProductosComprados
 import com.example.tiendasgeinzadmin.adapter.adapter_obtener_pedidos
+import com.example.tiendasgeinzadmin.constantes.cosntantes_datos_user
 import com.example.tiendasgeinzadmin.constantes.obtener_enviar_notification
-import com.geinzTienda.tiendasgeinzadmin.DataClass.dataclassitem_pedidos
+import com.geinzTienda.tiendasgeinzadmin.R
 import com.geinzTienda.tiendasgeinzadmin.databinding.BottomsheetAceptarRechazarPedidosGeneralBinding
 import com.geinzTienda.tiendasgeinzadmin.databinding.FragmentComprasFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -45,6 +48,7 @@ class compras_fragment : Fragment() {
     private lateinit var adapterFiltrado: adapterFiltradoCompras
     private lateinit var bottomSheet: BottomSheetDragHandleView
     private lateinit var adapterobtenerPedidos: adapter_obtener_pedidos
+    private lateinit var adapterArticulosCliente: adapterArticulosCliente
     private lateinit var adapterProductosCompras: adapterProductosComprados
     private lateinit var dialog: BottomSheetDialog
 
@@ -128,6 +132,7 @@ class compras_fragment : Fragment() {
     private fun obtenerPedidosTiempoReal() {
         val databaseRef = FirebaseDatabase.getInstance().getReference("CompraTienda")
         val idTienda = firebaseAuth.uid.toString()
+        Log.d("idTienda", idTienda)
         val comprasList = mutableListOf<dataclasPedidos>()
 
         databaseRef.child(idTienda).addValueEventListener(object : ValueEventListener {
@@ -139,62 +144,59 @@ class compras_fragment : Fragment() {
                         val comprasSnapshot = userSnapshot.child("compra")
                         if (comprasSnapshot.exists()) {
                             for (compra in comprasSnapshot.children) {
-                                val tipoRealizado =
-                                    compra.child("tipoRealizado").value as? String ?: ""
-                                val idPedido = compra.child("idPedido").value as? String ?: ""
-                                val nombre = compra.child("nombre").value as? String ?: ""
-                                val totalCancelar =
-                                    compra.child("totalCancelar").value as? String ?: ""
-                                val metodoPago = compra.child("metodoPago").value as? String ?: ""
+                                val estado = compra.child("estado").value as? String ?: ""
                                 val estadoPedido =
                                     compra.child("estadoPedido").value as? String ?: ""
-                                val totalDriver = compra.child("totalDriver").value as? String ?: ""
-                                val totalProductos =
-                                    compra.child("totalProductos").value as? String ?: ""
-                                val localidad = compra.child("localidad").value as? String ?: ""
-                                val direccion = compra.child("direccion").value as? String ?: ""
+                                val fecha = compra.child("fecha").value as? String ?: ""
+                                val fechaEntregaLlegada =
+                                    compra.child("fecha_entrega_llegada").value as? String ?: ""
+                                val hora = compra.child("hora").value as? String ?: ""
+                                val horaEntregaLlegada =
+                                    compra.child("hora_entrega_llegada").value as? String ?: ""
+                                val idDriver = compra.child("idDriver").value as? String ?: ""
+                                val idPedido = compra.child("idPedido").value as? String ?: ""
+                                val idRefUser = compra.child("idRef_user").value as? String ?: ""
+                                val idTienda = compra.child("idTienda").value as? String ?: ""
+                                val idUser = compra.child("idUser").value as? String ?: ""
                                 val metodoEntrega =
                                     compra.child("metodoEntrega").value as? String ?: ""
-                                val numero = compra.child("numero").value as? String ?: ""
-                                val idTienda = compra.child("idTienda").value as? String ?: ""
-                                val idUSer = compra.child("idUSer").value as? String ?: ""
-                                val fecha = compra.child("fecha").value as? String ?: ""
-                                val hora = compra.child("hora").value as? String ?: ""
-                                val nombreTienda = compra.child("nombreTienda").value as? String ?: ""
+                                val metodoPago = compra.child("metodoPago").value as? String ?: ""
+                                val precioDelivery =
+                                    compra.child("precioDelivery").value as? Number ?: 0
+                                val productos = compra.child("productos").value as? String
+                                    ?: "" // Podrías convertirlo a un objeto si es JSON
+                                val tipoRealizado =
+                                    compra.child("tipoRealizado").value as? String ?: ""
+                                val totalCancelar =
+                                    compra.child("totalCancelar").value as? Number ?: 0
+                                val totalDriver = compra.child("totalDriver").value as? Number ?: 0
+                                val totalProductos =
+                                    compra.child("totalProductos").value as? Number ?: 0
 
-                                if (!tipoRealizado.isNullOrEmpty() &&
-                                    !idPedido.isNullOrEmpty() &&
-                                    !nombre.isNullOrEmpty() &&
-                                    !totalCancelar.isNullOrEmpty() &&
-                                    !metodoPago.isNullOrEmpty() &&
-                                    !estadoPedido.isNullOrEmpty() &&
-                                    !totalDriver.isNullOrEmpty() &&
-                                    !totalProductos.isNullOrEmpty() &&
-                                    !metodoEntrega.isNullOrEmpty() &&
-                                    !numero.isNullOrEmpty()&& !nombreTienda.isNullOrEmpty()
-                                ) {
-                                    val compraObj = dataclasPedidos(
-                                        numeroPedidos = idPedido,
-                                        nombreUSer = nombre,
-                                        total = totalCancelar,
-                                        cantidadArticulos = totalProductos,
-                                        metodoPago = metodoPago,
-                                        estados = estadoPedido,
-                                        numeroUser = numero,
-                                        tipoEntrega = metodoEntrega,
-                                        tototalDriver = totalDriver,
-                                        totalProductos = totalProductos,
-                                        ubicacionUser = direccion,
-                                        localidadUSer = localidad,
-                                        tipoPedido = tipoRealizado,
-                                        fecha = fecha,
-                                        hora = hora,
-                                        idTienda = idTienda,
-                                        idUSer = idUSer,
-                                        nombreTienda=nombreTienda,"compra"
-                                    )
-                                    comprasList.add(compraObj)
-                                }
+                                val compraObj = dataclasPedidos(
+                                    estado = estado,
+                                    estadoPedido = estadoPedido,
+                                    fecha = fecha,
+                                    fechaEntregaLlegada = fechaEntregaLlegada,
+                                    hora = hora,
+                                    horaEntregaLlegada = horaEntregaLlegada,
+                                    idDriver = idDriver,
+                                    idPedido = idPedido,
+                                    idRefUser = idRefUser,
+                                    idTienda = idTienda,
+                                    idUser = idUser,
+                                    metodoEntrega = metodoEntrega,
+                                    metodoPago = metodoPago,
+                                    precioDelivery = precioDelivery,
+                                    productos = productos,
+                                    tipoRealizado = tipoRealizado,
+                                    totalCancelar = totalCancelar,
+                                    totalDriver = totalDriver,
+                                    totalProductos = totalProductos
+                                )
+
+                                comprasList.add(compraObj)
+
                             }
                         }
                     }
@@ -231,6 +233,7 @@ class compras_fragment : Fragment() {
         recicle.adapter = adapterobtenerPedidos
     }
 
+
     private fun aceptarRechazarPedido(
         item: dataclasPedidos
     ) {
@@ -238,29 +241,56 @@ class compras_fragment : Fragment() {
             BottomsheetAceptarRechazarPedidosGeneralBinding.inflate(LayoutInflater.from(mcontex))
         val view = bindingBottomShet.root
         bottomSheet = bindingBottomShet.cerrar
-        bindingBottomShet.datosUserRealizado.numeroPedido.text = item.numeroPedidos
-        bindingBottomShet.datosUserRealizado.tipoEntrega.text = item.tipoEntrega
+        bindingBottomShet.datosUserRealizado.numeroPedido.text = item.idPedido
+        bindingBottomShet.datosUserRealizado.tipoEntrega.text = item.metodoEntrega
         bindingBottomShet.datosUserRealizado.linealUbiEntrega.isVisible = false
         bindingBottomShet.datosUserRealizado.linealCordenadasEntrega.isVisible = false
-        if (item.tipoEntrega.equals("Delivery")) {
+        if (item.metodoEntrega.equals("Delivery")) {
             bindingBottomShet.datosUserRealizado.linealUbiEntrega.isVisible = true
             bindingBottomShet.datosUserRealizado.linealCordenadasEntrega.isVisible = true
-            bindingBottomShet.datosUserRealizado.ubicaionEntrega.text = item.ubicacionUser
+//
             //aplicar las cordenadas para copiar
+            cosntantes_datos_user.get_place_of_delivery(
+                item.idUser.toString(),
+                item.idRefUser.toString()
+            ) { direction, nameRef, location, lat, log ->
+                bindingBottomShet.datosUserRealizado.ubicaionEntrega.text = direction
+                bindingBottomShet.datosUserRealizado.cordenadasEntrega.text = "$lat $log"
+            }
         }
         bindingBottomShet.datosUserRealizado.metodoPago.text = item.metodoPago
-        bindingBottomShet.tipoVenta.text = item.tipoPedido
-        bindingBottomShet.datosUserRealizado.nombreCompleto.text = item.nombreUSer
-        bindingBottomShet.datosUserRealizado.numeroContacto.text = item.numeroUser
-        bindingBottomShet.datosUserRealizado.LocalidadUSer.text = item.localidadUSer
-        obtenerProductos(item.idUSer.toString(), item.numeroPedidos.toString(), bindingBottomShet)
-        val tototalDriver = item.tototalDriver?.toFloatOrNull() ?: 0f
-        val totalProductos = item.totalProductos?.toFloatOrNull() ?: 0f
+        bindingBottomShet.tipoVenta.text = item.tipoRealizado
+        cosntantes_datos_user.viewDataUSer(item.idUser.toString()) { first_name, number, last_name, location, imgPerfil ->
+            bindingBottomShet.datosUserRealizado.nombreCompleto.text = "$first_name $last_name"
+            bindingBottomShet.datosUserRealizado.numeroContacto.text = number
+            bindingBottomShet.datosUserRealizado.LocalidadUSer.text = location
+            try {
+                Glide.with(mcontex)
+                    .load(imgPerfil)
+                    .error(R.drawable.img_perfil)
+                    .into(bindingBottomShet.datosUserRealizado.imgPerfilUser)
+            } catch (e: Exception) {
+                println("error al setar la img")
+            }
+
+
+        }
+
+        obtenerProductos(item.idUser.toString(), item.idPedido.toString(), bindingBottomShet)
+        val tototalDriver = item.totalDriver?.toString()?.toFloatOrNull() ?: 0f
+        val totalProductos = item.totalProductos?.toString()?.toFloatOrNull() ?: 0f
         obtenerTotalCancelar(tototalDriver, totalProductos, bindingBottomShet)
 
 
         bindingBottomShet.AceptarPedididoReserva.setOnClickListener {
-            aceptarPedido(item,item.idUSer.toString(),item.idTienda.toString(),item.numeroPedidos.toString(),item.tipoCompra_o_reserva.toString(),bindingBottomShet)
+            aceptarPedido(
+                item,
+                item.idUser.toString(),
+                item.idTienda.toString(),
+                item.idPedido.toString(),
+                "compra",
+                bindingBottomShet
+            )
         }
         bindingBottomShet.RechazarPedididoReserva.setOnClickListener {
             notificarUSer(
@@ -286,7 +316,7 @@ class compras_fragment : Fragment() {
                 (context as? Activity)?.let { activity ->
                     noti.sendNotification_sin_parametros(
                         activity,
-                        item.idUSer.toString(),
+                        item.idUser.toString(),
                         "$tituloNotificacionED",
                         "$descripcionNotificacionED"
                     )
@@ -295,7 +325,7 @@ class compras_fragment : Fragment() {
                     println("Error: El contexto no es una actividad")
                 }
             } catch (e: Exception) {
-                println("Error enviando notificación para el token ${item.idUSer.toString()}: ${e.message}")
+                println("Error enviando notificación para el token ${item.idUser.toString()}: ${e.message}")
             }
         }
         obtener_enviar_notification.obtenerTokenUsuario(
@@ -305,7 +335,7 @@ class compras_fragment : Fragment() {
             firebaseAuth.uid.toString(),
             "idPromo",
             "PROMO_SUGERIDAS",
-            item.idUSer.toString(),
+            item.idUser.toString(),
             "idTienda",
             "",
             "idPromo",
@@ -313,7 +343,7 @@ class compras_fragment : Fragment() {
     }
 
 
-    private fun obtenerProductos(
+    fun obtenerProductos(
         idUser: String,
         idPedidos: String,
         bindingBottomShet: BottomsheetAceptarRechazarPedidosGeneralBinding
@@ -447,7 +477,14 @@ class compras_fragment : Fragment() {
             FirebaseDatabase.getInstance().getReference("PedidosUsuario").child(idUsuario)
                 .child("tiendas").child(idTienda).child(tipo).child(idPedido)
 
-        actualizarDatosRealTime(compraTiendaRef, pedidoUserRef, data, idUsuario, idTienda,bindingBottomShet)
+        actualizarDatosRealTime(
+            compraTiendaRef,
+            pedidoUserRef,
+            data,
+            idUsuario,
+            idTienda,
+            bindingBottomShet
+        )
     }
 
     private fun actualizarDatosRealTime(
@@ -524,15 +561,15 @@ class compras_fragment : Fragment() {
                                     .collection("pendiente")
 
                                 val hashMap = hashMapOf<String, Any>(
-                                    "direccion" to data.ubicacionUser!!,
-                                    "estado" to data.estados!!,
+                                    "direccion" to data.idRefUser!!,
+                                    "estado" to data.estadoPedido!!,
                                     "fecha" to data.fecha!!,
                                     "idDriver" to idDriver!!,
-                                    "idPedido" to data.numeroPedidos!!,
+                                    "idPedido" to data.idPedido!!,
                                     "idTienda" to idTienda!!,
                                     "idUSer" to idUsuario!!,
-                                    "nombreTienda" to data.nombreTienda!!,
-                                    "tipo" to data.tipoPedido!!
+                                    "nombreTienda" to data.idTienda!!,
+                                    "tipo" to data.tipoRealizado!!
                                 )
 
                                 listaDriver.add(hashMap)
@@ -583,7 +620,7 @@ class compras_fragment : Fragment() {
                 notificationRS.sendNotification_sin_parametros(
                     mcontex,
                     token.toString(),
-                    "Pedido aceptado de ${data.nombreTienda}!",
+                    "Pedido aceptado de ",
                     msj
                 )
             }

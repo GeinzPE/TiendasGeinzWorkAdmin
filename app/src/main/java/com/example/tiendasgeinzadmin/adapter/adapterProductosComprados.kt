@@ -41,7 +41,7 @@ class adapterProductosComprados(private val lista: MutableList<dataclassProducto
             val descuento = item.cantidadDescuento?.toInt() ?: 0
             if (item.descuentoBoolean == true && descuento > 0) {
                 totalPagar = calcularPrecioConDescuento(totalPagar, descuento)
-                binding.descuentoProducto.text = "-% $descuento"
+                binding.descuentoProducto.text = "-$descuento%"
             } else {
                 binding.descuentoProducto.text = "NO"
             }
