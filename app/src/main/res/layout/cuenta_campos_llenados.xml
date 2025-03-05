@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:layout_height="match_parent">
+    android:layout_marginTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +28,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/name_Store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -50,6 +51,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/location_Store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -72,6 +74,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/number_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -94,6 +97,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/id_Store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -116,6 +120,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/ruc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -138,6 +143,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/type_store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -160,6 +166,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/products_publiser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -182,6 +189,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/promotions_enable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -204,6 +212,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/method_of_payments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -226,6 +235,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/quantily_of_review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -248,6 +258,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/options_driver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -270,6 +281,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/social_network"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"
@@ -292,6 +304,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/description_store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puntos"

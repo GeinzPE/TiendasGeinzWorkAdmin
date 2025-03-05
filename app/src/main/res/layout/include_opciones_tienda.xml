@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginHorizontal="5dp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/editar_perfil" />
+
+    <Button
+        android:id="@+id/edit_timetable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="editar horario" />
+
+    <Button
+        android:id="@+id/notify_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="notificar usuario" />
+
+    <Button
+        android:id="@+id/qr_payments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="qr pagos" />
+
+    <Button
+        android:id="@+id/history_geinz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historial de pagos Geinz" />
+
+    <Button
+        android:id="@+id/add_art"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="agregar articulos" />
+
+    <Button
+        android:id="@+id/add_Service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="agregar servicios" />
+
+    <Button
+        android:id="@+id/add_promotions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="agregar promociones" />
+
+</LinearLayout>

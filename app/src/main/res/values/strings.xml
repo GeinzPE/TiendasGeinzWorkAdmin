@@ -8,4 +8,6 @@
     <string name="Bienvenido_Geinz">Bienvenido a tiendas geinz</string>
     <string name="Usuario">user</string>
     <string name="puntos">****</string>
+    <string name="editar_perfil">editar perfil</string>
+    <string name="cambiar_campos_tiendas_add">cambiar</string>
 </resources>

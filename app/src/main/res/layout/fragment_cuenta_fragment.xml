@@ -5,21 +5,30 @@
     android:orientation="vertical"
     tools:context="com.example.tiendasgeinzadmin.Fragmentos.cuenta_fragment">
 
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/cuenta_imagenes"
-            layout="@layout/incluide_imagen_cuenta_vertical_horizontal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <include
-            android:id="@+id/camposLlenados"
-            layout="@layout/cuenta_campos_llenados" />
+            <include
+                android:id="@+id/cuenta_imagenes"
+                layout="@layout/incluide_imagen_cuenta_vertical_horizontal" />
 
-    </LinearLayout>
+            <include
+                android:id="@+id/camposLlenados"
+                layout="@layout/cuenta_campos_llenados" />
+
+            <include
+                android:id="@+id/item_opciones_store"
+                layout="@layout/include_opciones_tienda" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 
     <ImageView
         android:id="@+id/menu"
