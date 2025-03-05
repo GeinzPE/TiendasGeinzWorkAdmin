@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="notificar seguidores"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="En Geinz, confiamos en la responsabilidad de las tiendas " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creemos firmemente en que las tiendas son responsables al comunicarse con sus seguidores. Por eso, les brindamos la posibilidad de crear sus propias notificaciones, confiando en que las utilizarán de manera adecuada y evitarán el envío de mensajes innecesarios o repetitivos. Nuestro objetivo es fomentar una conexión significativa y respetuosa entre las tiendas y sus clientes.
+Sin embargo, si el sistema de notificaciones es usado de manera incorrecta, generando spam o contenido inapropiado, no se aceptarán quejas ni se realizarán reembolsos. Además, la cuenta responsable será eliminada de manera permanente, sin posibilidad de reactivación"/>
+
+    <CheckBox
+        android:id="@+id/I_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estoy de acuerdo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/title_pomotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:focusable="false"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp">
+
+        <EditText
+            android:id="@+id/title_pomotion_ED"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:hint="titulo de la promocione"
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_promotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:focusable="false"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp">
+
+        <EditText
+            android:id="@+id/text_promotion_ED"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:hint="texto de la promocion"
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/notify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="notificar" />
+
+</LinearLayout>

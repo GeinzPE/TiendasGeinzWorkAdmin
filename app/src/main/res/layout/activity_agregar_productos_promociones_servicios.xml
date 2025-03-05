@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tiendasgeinzadmin.vistas_cuenta_tienda.agregar_productos_promociones_servicios">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/include_add_img"
+                layout="@layout/incluide_agregar_img_art_prod_etc" />
+
+            <include
+                android:id="@+id/include_fields_name_etc"
+                layout="@layout/include_campos_nombre_metodos_adquirir" />
+
+            <include
+                android:id="@+id/include_fields_category_etc"
+                layout="@layout/include_campos_categoria_descripcion_fch_v" />
+
+            <include
+                android:id="@+id/include_notify_user"
+                layout="@layout/include_notificar_seguidores" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

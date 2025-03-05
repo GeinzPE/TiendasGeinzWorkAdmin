@@ -17,6 +17,9 @@
         android:theme="@style/Theme.TiendasGeinzAdmin"
         tools:targetApi="31">
         <activity
+            android:name="com.example.tiendasgeinzadmin.vistas_cuenta_tienda.agregar_productos_promociones_servicios"
+            android:exported="false" />
+        <activity
             android:name="com.example.tiendasgeinzadmin.Fragmentos.vistas.aceptar_rechazar_pedidos_generales"
             android:exported="false" />
         <activity
